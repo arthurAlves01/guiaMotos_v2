@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <link id="iconeTopo" rel="icon" href="{% static "/img/moto1.png " %}">
+    <title>Guia Motos</title>
+    <link href="{% static "/css/login.css" %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Farro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Beth+Ellen|Farro&display=swap" rel="stylesheet">
+</head>
+<nav class="navbar navbar-dark .bg-dark navbar-expand-lg navbar-dark bg-primary">
+    <img id="imagemLogoNav" src="../static/img/moto1.png"><a id="nomeTitulo" class="navbar-brand" href="{% url 'home' %}">Guia Motos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<body>
+    <div class="container">
+        {% block body %} 
+        {% endblock %}
+    </div>
+</body>
+
+</html>
