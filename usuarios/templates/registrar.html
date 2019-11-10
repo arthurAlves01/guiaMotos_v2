@@ -11,9 +11,9 @@
             <label id="labelCadastrar" for="exampleInputPassword1">Informe sua senha:</label>
           <input type="password" id="inputPassword" name="senha" class="form-control" required>
             <label id="labelCadastrar" for="exampleInputPassword1">Confirme sua senha:</label>
-          <input type="password" id="inputPassword" class="form-control" required>
+          <input type="password" id="inputPassword" name="senha2" class="form-control" required>
         <button id="botaoEnviarCadastro" class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
-        </form>
+        
 
     {% if form.errors %}
         <div class="alert alert-danger">
@@ -23,6 +23,8 @@
             {{form.non_field_errors}}
         </div>
     {% endif %}
+
+    </form>
 
 
 {% endblock %}

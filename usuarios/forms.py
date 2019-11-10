@@ -20,7 +20,7 @@ class RegistrarUsuarioForm(forms.Form):
 		if user_exists:
 			self.adiciona_erro('Usuario ja existente')
 			valid = False
-			
+		
 		return valid
 
 	def adiciona_erro(self, message):
