@@ -3,8 +3,8 @@
 <head>
 <title id="titulo">Guia Motos</title>
 <meta charset="utf-8">
-<link id="iconeTopo" rel="icon" href="Imagens/moto1.png">
-<link rel=stylesheet href="bootstrap/css/bootstrap.css">
+<link id="iconeTopo" rel="icon" href="../static/img/moto1.png">
+<link rel=stylesheet href="../static/bootstrap/css/bootstrap.css">
 <link href="https://fonts.googleapis.com/css?family=Anton&display=swap"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Farro&display=swap"
@@ -12,7 +12,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Anton|Beth+Ellen|Farro&display=swap"
 	rel="stylesheet">
-<link rel=stylesheet href="css/detalheMoto.css">
+<link rel=stylesheet href="../static/css/detalheMoto.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap"
 	rel="stylesheet">      
@@ -20,15 +20,19 @@
     <header>
 	<nav
 		class="navbar navbar-dark .bg-dark navbar-expand-lg navbar-dark bg-primary">
-		<img id="imagemLogoNav" src="Imagens/moto1.png"><a
-			id="nomeTitulo" class="navbar-brand" href="index.html">Guia Motos</a>
+		<img id="imagemLogoNav" src="../static/img/moto1.png"><a
+			id="nomeTitulo" class="navbar-brand" href="{% url 'home' %}">Guia Motos</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSite">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSite">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a id="navConfig" class="nav-link text-white" href="login.html">Login</a></li>
+      {% if username == '' %}
+				<li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
+        {% else %}
+         Olá: {{username}} <a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
+        {% endif %}
 			</ul>
 		</div>
 	</nav>
@@ -41,7 +45,7 @@
     <div id="show"class="row ">
     
 <div  class="card col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center" style="width: 18rem;">
-  <img src="Imagens/moto1.png" class="card-img-top" alt="...">
+  <img src="../static/img/moto1.png" class="card-img-top" alt="...">
   <div class="card-body">
         <table class="table">
   <thead class="thead-dark">
@@ -67,7 +71,7 @@
   </div>
 </div>
 <div class="card col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center" style="width: 18rem;">
-  <img src="Imagens/moto1.png" class="card-img-top" alt="...">
+  <img src="../static/img/moto1.png" class="card-img-top" alt="...">
   <div class="card-body">
     <table class="table">
   <thead class="thead-dark">
@@ -128,9 +132,9 @@
 
     
 </div>    
-    <script src="js/jquery.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/configPage.js"></script>
+    <script src="../static/js/jquery.js"></script>
+	<script src="../static/js/popper.min.js"></script>
+	<script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/configPage.js"></script>
  </body>  
 </html>

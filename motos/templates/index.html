@@ -29,7 +29,11 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSite">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
+				{% if username == '' %}
+				  <li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
+        {% else %}
+          Olá: {{username}} <a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
+        {% endif %}
 			</ul>
 		</div>
 	</nav>

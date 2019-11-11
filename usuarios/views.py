@@ -3,25 +3,60 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.views.generic.base import View
 from usuarios.forms import RegistrarUsuarioForm
+from usuarios.forms import LoginUsuarioForm
+from django.contrib.auth import authenticate, login, logout
+
 
 class RegistrarUsuarioView(View):
-	
-	template_name = 'registrar.html'
 
-	def get(self, request, *args, **kwargs):
-		return render(request, self.template_name)
-		
-	def post(self, request, *args, **kwargs):
+    template_name = 'registrar.html'
 
-		form = RegistrarUsuarioForm(request.POST)
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
-		if form.is_valid():
+    def post(self, request, *args, **kwargs):
 
-			dados_form = form.data
+        form = RegistrarUsuarioForm(request.POST)
 
-			usuario = User.objects.create_user(dados_form['nome'], 
-				dados_form['email'], dados_form['senha'])
+        if form.is_valid():
 
-			return redirect('home')
+            dados_form = form.data
 
-		return render(request, self.template_name, {'form' : form})
+            usuario = User.objects.create_user(dados_form['nome'],
+                                               dados_form['email'], dados_form['senha'])
+
+            return redirect('home')
+
+        return render(request, self.template_name, {'form': form})
+
+
+class LoginUsuarioView(View):
+
+    template_name = 'login.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+
+        form = LoginUsuarioForm(request.POST)
+
+        if form.is_valid():
+
+            dados_form = form.data
+            
+            u = User.objects.get(email=dados_form['username'])
+
+            user = authenticate(username=u.username, password=dados_form['password'])
+
+            if user is not None:
+                login(request, user)
+                return redirect('exibir')
+            else:
+                form.adiciona_erro('Usuario ou senha incorreto')
+
+        return render(request, self.template_name, {'form': form})
+
+def usuarioSair(request):
+    logout(request)
+    return redirect('home')
