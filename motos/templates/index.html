@@ -32,7 +32,7 @@
 				{% if username == '' %}
 				  <li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
         {% else %}
-          Olá: {{username}} <a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
+          <p id="mensagemUsuarioLogado">Olá: <strong id="nomeUsario">{{username}}</strong></p><a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
         {% endif %}
 			</ul>
 		</div>

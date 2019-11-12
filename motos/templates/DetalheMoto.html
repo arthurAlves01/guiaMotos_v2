@@ -31,7 +31,7 @@
       {% if username == '' %}
 				<li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
         {% else %}
-         Olá: {{username}} <a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
+         <p id="mensagemUsuarioLogado">Olá: <strong id="nomeUsario">{{username}}</strong></p><a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
         {% endif %}
 			</ul>
 		</div>
@@ -40,98 +40,278 @@
     
     
 <body>
-<div class="container">
-
-    <div id="show"class="row ">
-    
-<div  class="card col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center" style="width: 18rem;">
-  <img src="../static/img/moto1.png" class="card-img-top" alt="...">
-  <div class="card-body">
-        <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th style="text-align: center" scope="col" colspan="2">Moto X</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Cilindradas</th>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th scope="row">Peso</th>
-      <td>X</td>
-    </tr>
-    <tr>
-      <th scope="row">Torque</th>
-      <td>Y</td>
-    </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="card col-md-4 col-lg-6 col-sm-6 col-xs-12 text-center" style="width: 18rem;">
-  <img src="../static/img/moto1.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th style="text-align: center" scope="col" colspan="2">Moto Y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Cilindradas</th>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th scope="row">Peso</th>
-      <td>X</td>
-    </tr>
-    <tr>
-      <th scope="row">Torque</th>
-      <td>Y</td>
-    </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-        
-       <div  id="DivtabelaComparar"class="card col-md-4 col-lg-12 col-sm-6 col-xs-12 text-center" style="width: 18rem;">
-            <table class="table">
-  <thead class="thead-dark">
-    <tr>
-        <th style="text-align: center" scope="col"></th>
-      <th style="text-align: center" scope="col">Moto X</th>
-      <th style="text-align: center" scope="col">Moto Y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Cilindradas</th>
-       <td style="color:red">10</td>
-      <td style="color:lawngreen">20</td>
-    </tr>
-    <tr>
-      <th scope="row">Peso</th>
-        <td style="color:red">10</td>
-       <td style="color:lawngreen">20</td>
-    </tr>
-    <tr>
-      <th scope="row">Torque</th>
-      <td style="color:red">10</td>
-       <td style="color:lawngreen">20</td>
-    </tr>
-      
-  </tbody>
-</table>
-
-        
+ <div class="container"  style="padding-top: 15px; border-color: blue;">
+    <div class="row">
+      <div class="col-6">
+      <div class="form-row border" title="Modelo 1" style=" border: 50px; border-color: blue;">
+        <div class="col-12" style="padding-top: 10px;">
+          
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">Veículo 1</li>
+                </ol>
+              </nav>
         </div>
-    </div><!-- /.row -->
+          <div class="form-group col-md-6">
+            <label for="inputState">Montadora</label>
+            <select id="inputState" class="form-control">
+              <option selected>Selecione...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+              <label for="inputState">Modelo</label>
+              <select id="inputState" class="form-control">
+                <option selected>Selecione...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">Ano</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Selecione...</option>
+                  <option>...</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4" style="padding-left: 30px;">
+                <label for="inputState" style="color: transparent;">botao</label>
+                <button type="button" class="btn btn-success btn-block">Buscar</button>
+              </div> 
+        </div>
+      </div>
+        <div class="col-6">
+        <div class="form-row border" title="Modelo 2" style="border: 50px; border-color: blue;">
+            <div class="col-12" style="padding-top: 10px;">
+              
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page">Veículo 2</li>
+                    </ol>
+                  </nav>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputState">Montadora</label>
+              <select id="inputState" class="form-control">
+                <option selected>Selecione...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6"> 
+                <label for="inputState">Modelo</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Selecione...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="inputState">Ano</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Selecione...</option>
+                    <option>...</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4" style="padding-left: 30px;">
+                <label for="inputState" style="color: transparent;">botao</label>
+                <button type="button" class="btn btn-success btn-block">Buscar</button>
+              </div> 
+          </div>
+        </div>
+        </div>
+ <!-- </div> -->
+  <br>
+<!--<div class="container" style="padding-left:30% ; padding-right: 30%;">
+    <button type="button" class="btn btn-success btn-lg btn-block">Buscar</button>
+    <br>
+</div>-->
+ <div class="container">
+<div class="row">    
+<br>
+<br>
 
-    
-</div>    
+<h2>Especificações</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th class="colModelo1">Modelo 1</th>
+                  <th class="colItens" >Especificações</th>
+                  <th class="colModelo2">Modelo 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="itenModelo1">Honda</td>
+                  <td class="itenEspecificacao">Montadora</td>
+                  <td class="itenModelo2" >Yamaha</td>
+                </tr>
+                <tr>
+                  <td class="itenModelo1">CB500 Y</td>
+                  <td class="itenEspecificacao">Modelo</td>
+                  <td class="itenModelo2">TX 400 PY</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">2019</td>
+                  <td class="itenEspecificacao">Fabricante</td>
+                  <td class="itenModelo2" >2018</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Ano</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Cores</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Tipo de Chasi</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Suspensão Dianteira</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Pneu Dianteiro</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Pneu Traseiro</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Freio Dianteiro</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Freio Traseiro</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Tipo de Freio</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Quantidade de Cilindro</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Diametro</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Curso</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Cilindrada</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Potencia Maxima</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Torque Maximo</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Sistema de Partida</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Tipo de Alimentação</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Combustivel</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Sistema de Transmissão</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Cambio</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Bateria</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Taxa de Compressão</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Comprimento</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Largura</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Altura</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Distancia Entre Eixos</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Distancia do Solo</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Altura do Assento</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Tanque de Combustivel</td>
+                  <td class="itenModelo2" >-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1">-</td>
+                  <td class="itenEspecificacao">Peso</td>
+                  <td class="itenModelo2" >-</td>
+                </tr> 
+              </tbody>
+            </table>
+          </div>
+</div>
+<footer class="container">
+    <p class="float-right"><a href="#">Ir para o Inicio da Pagina</a></p>
+    <p>© TCC - UNIP - GUIA MOTOS·</p>
+  </footer>
+   
     <script src="../static/js/jquery.js"></script>
 	<script src="../static/js/popper.min.js"></script>
 	<script src="../static/js/bootstrap.min.js"></script>

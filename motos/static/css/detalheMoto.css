@@ -21,31 +21,58 @@
     text-shadow: 0.1em 0.1em 0.2em black;
 }
 
-
-.categorias ul{
-	list-style: none;
-	padding-left: 0px;
+.colModelo1 {
+    text-align: left;
+    width: 40%;
 }
 
-.categorias li{
-	border: 1px solid black;
-	border-bottom: 1px solid white;
-	background-color: #005797;
-	padding-left: 5px;
-	text-align: left;
+.colItens {
+    text-align: center;
 }
 
-.categorias a{
-	color: white;
-	text-decoration: none;
-	font-size: 22px;
+.colModelo2 {
+    text-align: right;
+    width: 40%;
 }
 
-.categorias li:hover{
-	color: white;
-	background-color: #b81e1e;
-	transition: 0.6s;
+.itenModelo1 {
+    text-align: left;
 }
+
+.itenEspecificacao {
+    font-weight: bold;
+    text-align: center;
+}
+
+.itenModelo2 {
+    text-align: right;
+}
+
+.categorias ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.categorias li {
+    border: 1px solid black;
+    border-bottom: 1px solid white;
+    background-color: #005797;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.categorias a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.categorias li:hover {
+    color: white;
+    background-color: #b81e1e;
+    transition: 0.6s;
+}
+
 #teste {
     vertical-align: middle;
     border-style: none;
@@ -56,6 +83,7 @@
 .motos img {
     width: 100%;
 }
+
 img {
     vertical-align: middle;
 }
@@ -64,27 +92,37 @@ img {
     border: 0;
     width: 80%;
 }
+
 .w-100 {
     width: 100% !important;
     height: 190px;
 }
 
-.carousel{
-	padding-top: 0px;
+.carousel {
+    padding-top: 0px;
 }
 
-.menu-superior{
-	font-weight: bold;
-	background-color: red;
+.menu-superior {
+    font-weight: bold;
+    background-color: red;
 }
 
-
-.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9 {
     float: left;
 }
 
-
-#formConfig{
+#formConfig {
     padding-top: 50px;
     margin-top: 0px;
     height: 100%;
@@ -94,32 +132,48 @@ body {
     background-color: ghostwhite;
 }
 
-.container{
+.container {
     padding-left: 0px;
     padding-right: 0px;
-
 }
 
-#show{
+#show {
     margin-top: 30px;
 }
 
-#versusImg{
+#versusImg {
     height: 100%;
     border-radius: 212px;
     width: 10px;
     text-align: center;
     align-items: center;
-         width: 50vw;
-     height: 30vh;
-     display: flex;
-     flex-direction: row;
+    width: 50vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-     align-items: center
+    align-items: center
 }
 
-#DivtabelaComparar{
+#DivtabelaComparar {
     margin-top: 10px;
     padding-right: 0px;
     padding-left: 0px;
+}
+
+#mensagemUsuarioLogado {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-top: 8px;
+    margin-right: 21px;
+    color: #fff;
+    font-size: 19px;
+}
+
+#nomeUsario {
+    font-size: 19px;
+}
+
+#navconfig {
+    padding-top: 10px;
 }
