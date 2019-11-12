@@ -28,15 +28,14 @@
           var pass1 = document.getElementById('inputPassword').value;
           var pass2 = document.getElementById('inputPassword2').value;
       
-          if (pass1 == pass2)
+          if (pass1 != pass2)
           {
-              alert("Passwords Match")
+              alert("As senhas não conferem!")
+                return false;
           }
-      
           else
           {
-              alert("Passwords Do Not Match")
-              return false;
+              return true 
           }
       }
   </script>
