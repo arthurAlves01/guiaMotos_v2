@@ -30,8 +30,11 @@
       
           if (pass1 != pass2)
           {
+              document.getElementById('inputPassword').value = "";
+              document.getElementById('inputPassword2').value = "";
+              document.getElementById('inputPassword').focus();
               alert("As senhas não conferem!")
-                return false;
+              return false;
           }
           else
           {
