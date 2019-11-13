@@ -1,7 +1,7 @@
 {% extends "base_usuario.html" %}
 
 {% block body %}
-        <form class="form-signin jumbotron col-md-12 col-lg-7 col-xs-12" action="{% url 'cadastrar' %}" method="post">
+        <form class="form-signin jumbotron col-md-12 col-lg-7 col-xs-12" action="{% url 'cadastrar' %}" method="post" id="formulario" onsubmit="return validate()">
           {% csrf_token %}
           <h1 class="h3 mb-3 font-weight-normal">Cadastrar</h1>
             <label id="labelCadastrar" for="exampleInputPassword1">Informe seu nome:</label>
@@ -11,7 +11,7 @@
             <label id="labelCadastrar" for="exampleInputPassword1">Informe sua senha:</label>
           <input type="password" id="inputPassword" name="senha" class="form-control" required>
             <label id="labelCadastrar" for="exampleInputPassword1">Confirme sua senha:</label>
-          <input type="password" id="inputPassword" name="senha2" class="form-control" required>
+          <input type="password" id="inputPassword2" name="senha2" class="form-control" required>
         <button id="botaoEnviarCadastro" class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>        
 
     {% if form.errors %}
@@ -22,8 +22,24 @@
             {{form.non_field_errors}}
         </div>
     {% endif %}
-
-    </form>
-
-
+  </form>
+  <script>//Script para validar se as duas senhas digitadas conferem
+      function validate(){
+          var pass1 = document.getElementById('inputPassword').value;
+          var pass2 = document.getElementById('inputPassword2').value;
+      
+          if (pass1 != pass2)
+          {
+              document.getElementById('inputPassword').value = "";
+              document.getElementById('inputPassword2').value = "";
+              document.getElementById('inputPassword').focus();
+              alert("As senhas não conferem!")
+              return false;
+          }
+          else
+          {
+              return true 
+          }
+      }
+  </script>
 {% endblock %}
