@@ -15,8 +15,9 @@
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="email" id="inputEmail" type="submit">Login</button>
             <p>Não é cadastrado? <a href="{% url 'cadastrar' %}">Crie uma conta</a></p>
-            
-
+            <div class="col-md-10 col-lg-12 col-xs-10">
+                <a class="col-md-10 col-lg-12 col-xs-10" id="esqueciMinhaSenha" href="cadastrar.html">Esqueci a senha</a>
+            <div>
             {% if form.errors %}
                 <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">

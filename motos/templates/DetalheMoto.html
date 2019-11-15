@@ -15,13 +15,17 @@
 <link rel=stylesheet href="../static/css/detalheMoto.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap"
-	rel="stylesheet">      
+  rel="stylesheet">      
+  <style>
+    #arqFoto1, #arqFoto2 {
+      text-align: center;
+    }
+  </style>
 </head>
     <header>
 	<nav
 		class="navbar navbar-dark .bg-dark navbar-expand-lg navbar-dark bg-primary">
-		<img style="width: 12%;" src="../static/img/Logo.png"><a
-			id="nomeTitulo" class="navbar-brand" href="{% url 'home' %}"></a>
+ <img style="width: 12%;" src="../static/img/Logo.png"><a id="nomeTitulo" class="navbar-brand" href="{% url 'home' %}"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSite">
 			<span class="navbar-toggler-icon"></span>
@@ -53,31 +57,29 @@
               </nav>
         </div>
           <div class="form-group col-md-6">
-            <label for="inputState">Montadora</label>
-            <select id="inputState" class="form-control">
+            <label for="montadora1">Montadora</label>
+            <select id="montadora1" class="form-control">
               <option selected>Selecione...</option>
-              {% for icon in exibirmontadora %}
-                <option value={{icon.nome}}>{{ icon.nome }}</option>
-              {% endfor %}
+              <!--LISTA DE MONTADORA 1-->
             </select>
           </div>
           <div class="form-group col-md-6">
-              <label for="inputState">Modelo</label>
-              <select id="inputState" class="form-control">
+              <label for="modelo1">Modelo</label>
+              <select id="modelo1" class="form-control">
                 <option selected>Selecione...</option>
-                <option>...</option>
+                <!--LISTA DE MODELOS 1-->
               </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputState">Ano</label>
-                <select id="inputState" class="form-control">
+                <label for="ano1">Ano</label>
+                <select id="ano1" class="form-control">
                   <option selected>Selecione...</option>
-                  <option>...</option>
+                  <!--LISTA DE ANOMODELO 1-->
                 </select>
             </div>
             <div class="form-group col-md-4" style="padding-left: 30px;">
                 <label for="inputState" style="color: transparent;">botao</label>
-                <button type="button" class="btn btn-success btn-block">Buscar</button>
+                <button type="button" class="btn btn-success btn-block" id="buscar1">Buscar</button>
               </div> 
         </div>
       </div>
@@ -92,31 +94,29 @@
                   </nav>
             </div>
             <div class="form-group col-md-6">
-              <label for="inputState">Montadora</label>
-              <select id="inputState" class="form-control">
+              <label for="montadora2">Montadora</label>
+              <select id="montadora2" class="form-control">
                 <option selected>Selecione...</option>
-                {% for icon in exibirmontadora %}
-                <option value={{icon.nome}}>{{ icon.nome }}</option>
-              {% endfor %}
+                <!--LISTA DE MONTADORA 2-->
               </select>
             </div>
             <div class="form-group col-md-6"> 
-                <label for="inputState">Modelo</label>
-                <select id="inputState" class="form-control">
+                <label for="modelo2">Modelo</label>
+                <select id="modelo2" class="form-control">
                   <option selected>Selecione...</option>
-                  <option>...</option>
+                  <!--LISTA DE MODELOS 2-->
                 </select>
               </div>
               <div class="form-group col-md-4">
-                  <label for="inputState">Ano</label>
-                  <select id="inputState" class="form-control">
+                  <label for="ano2">Ano</label>
+                  <select id="ano2" class="form-control">
                     <option selected>Selecione...</option>
-                    <option>...</option>
+                    <!--LISTA DE ANOMODELO 2-->
                   </select>
               </div>
               <div class="form-group col-md-4" style="padding-left: 30px;">
                 <label for="inputState" style="color: transparent;">botao</label>
-                <button type="button" class="btn btn-success btn-block">Buscar</button>
+                <button type="button" class="btn btn-success btn-block" id="buscar2">Buscar</button>
               </div> 
           </div>
         </div>
@@ -144,168 +144,173 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="itenModelo1">Honda</td>
-                  <td class="itenEspecificacao">Montadora</td>
-                  <td class="itenModelo2" >Yamaha</td>
+                  <td class="itenModelo1" id="arqFoto1">-</td>
+                  <td class="itenEspecificacao">-</td>
+                  <td class="itenModelo2" id="arqFoto2">-</td>
                 </tr>
                 <tr>
-                  <td class="itenModelo1">CB500 Y</td>
+                  <td class="itenModelo1" id="nomemodelo1">-</td>
                   <td class="itenEspecificacao">Modelo</td>
-                  <td class="itenModelo2">TX 400 PY</td>
+                  <td class="itenModelo2" id="nomemodelo2">-</td>
+                </tr>
+                <tr>
+                  <td class="itenModelo1" id="montadora1">-</td>
+                  <td class="itenEspecificacao">Montadora</td>
+                  <td class="itenModelo2" id="montadora2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">2019</td>
-                  <td class="itenEspecificacao">Fabricante</td>
-                  <td class="itenModelo2" >2018</td>
-                </tr>
-                <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="anofabricacao1">-</td>
                   <td class="itenEspecificacao">Ano</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="anofabricacao2">-</td>
                 </tr>
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="cores1">-</td>
                   <td class="itenEspecificacao">Cores</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="cores2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="tipochassi1">-</td>
                   <td class="itenEspecificacao">Tipo de Chasi</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="tipochassi2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="suspensaodianteira1">-</td>
                   <td class="itenEspecificacao">Suspensão Dianteira</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="suspensaodianteira2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="suspensaotraseira1">-</td>
+                  <td class="itenEspecificacao">Suspensão Traseira</td>
+                  <td class="itenModelo2" id="suspensaotraseira2">-</td>
+                </tr>
+                <tr >
+                  <td class="itenModelo1" id="pneusdianteiro1">-</td>
                   <td class="itenEspecificacao">Pneu Dianteiro</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="pneusdianteiro2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="pneutraseiro1">-</td>
                   <td class="itenEspecificacao">Pneu Traseiro</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="pneutraseiro2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="freiodianteiro1">-</td>
                   <td class="itenEspecificacao">Freio Dianteiro</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="freiodianteiro2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="freiotraseiro1">-</td>
                   <td class="itenEspecificacao">Freio Traseiro</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="freiotraseiro2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="tipodofreio1">-</td>
                   <td class="itenEspecificacao">Tipo de Freio</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="tipodofreio2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="qtdcilindros1">-</td>
                   <td class="itenEspecificacao">Quantidade de Cilindro</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="qtdcilindros2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="diametro1">-</td>
                   <td class="itenEspecificacao">Diametro</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="diametro2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="curso1">-</td>
                   <td class="itenEspecificacao">Curso</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="curso2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="cilindrada1">-</td>
                   <td class="itenEspecificacao">Cilindrada</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="cilindrada2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="potenciamaxima1">-</td>
                   <td class="itenEspecificacao">Potencia Maxima</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="potenciamaxima2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="torquemaximo1">-</td>
                   <td class="itenEspecificacao">Torque Maximo</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="torquemaximo2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="sistemadepartida1">-</td>
                   <td class="itenEspecificacao">Sistema de Partida</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="sistemadepartida2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="tipodealimentacao1">-</td>
                   <td class="itenEspecificacao">Tipo de Alimentação</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="tipodealimentacao2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="combustivel1">-</td>
                   <td class="itenEspecificacao">Combustivel</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="combustivel2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="sistemadetransmissao1">-</td>
                   <td class="itenEspecificacao">Sistema de Transmissão</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="sistemadetransmissao2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="cambio1">-</td>
                   <td class="itenEspecificacao">Cambio</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="cambio2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="bateria1">-</td>
                   <td class="itenEspecificacao">Bateria</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="bateria2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="taxadecompessao1">-</td>
                   <td class="itenEspecificacao">Taxa de Compressão</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="taxadecompessao2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="comprimento1">-</td>
                   <td class="itenEspecificacao">Comprimento</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="comprimento2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="largura1">-</td>
                   <td class="itenEspecificacao">Largura</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="largura2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="altura1">-</td>
                   <td class="itenEspecificacao">Altura</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="altura2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="distanciaentreeixos1">-</td>
                   <td class="itenEspecificacao">Distancia Entre Eixos</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="distanciaentreeixos2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="distanciadosolo1">-</td>
                   <td class="itenEspecificacao">Distancia do Solo</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="distanciadosolo2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="alturadoassento1">-</td>
                   <td class="itenEspecificacao">Altura do Assento</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="alturadoassento2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="tanquedecombustivel1">-</td>
                   <td class="itenEspecificacao">Tanque de Combustivel</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="tanquedecombustivel2">-</td>
                 </tr>
                 <tr >
-                  <td class="itenModelo1">-</td>
+                  <td class="itenModelo1" id="peso1">-</td>
                   <td class="itenEspecificacao">Peso</td>
-                  <td class="itenModelo2" >-</td>
+                  <td class="itenModelo2" id="peso2">-</td>
                 </tr> 
               </tbody>
             </table>
@@ -320,5 +325,138 @@
 	<script src="../static/js/popper.min.js"></script>
 	<script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/configPage.js"></script>
+    <script>
+      var dados = '{{dadosModelos}}';
+      var dadosFinal = JSON.parse(dados.replace(/&quot;/g,"\"").replace(/[\n\t]/g,""));
+      //Encontra o "n" caractere desejado
+      //https://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
+      function nthIndex(str, pat, n){
+          var L= str.length, i= -1;
+          while(n-- && i++<L){
+              i= str.indexOf(pat, i);
+              if (i < 0) break;
+          }
+          return i;
+      }
+
+      //Gera lista de montadoras (valores unicos)
+      montadora = [...new Set(Object.keys(dadosFinal).map((m)=>{return m.substr(0,m.search("/"))}))]
+      //Gera lista de modelos (valores unicos)
+      modelos = [...new Set(Object.keys(dadosFinal).map((m)=>{return m.substr(0,nthIndex(m,"/",2))}))]
+      //Gera lista de modelos com ano modelo (valores unicos)
+      anoModelos = modelos = [...new Set(Object.keys(dadosFinal).map((m)=>{return m}))]
+
+
+      //Filtra a lista de modelos a partir da montadora informada
+      //@param	{string}	_montadora	nome da montadora
+      //
+      //@return	{array}		lista de modelos da montadora
+      function filtraModelos(_montadora) {
+        resultado = modelos.filter((m)=>{
+          return m.substr(0,m.search("/"))==_montadora
+        })
+        resultado = [...new Set(resultado.map((r) => {
+          return r.substring(r.search("/")+1,nthIndex(r,"/",2))
+        }))]
+        return resultado
+      }
+
+      //Filtra a lista de ano modelos de um determinado modelo a partir da montadora e modelos informados
+      //@param	{string}	_montadora	nome da montadora
+      //@param	{string}	_modelo		nome do modelo
+      //
+      //@return	{array}		lista de modelos da montadora
+      function filtraAnoModelo(_montadora,_modelo) {
+        p = [_montadora,_modelo].join("/")
+        resultado = anoModelos.filter((m) => {
+          return m.substr(0,nthIndex(m,"/",2))==p
+        })
+        resultado = [...new Set(resultado.map((r) => {
+          return r.substr(nthIndex(r,"/",2)+1)
+        }))]
+        return resultado
+      }
+
+      function alimentaLista(listaDados, listaOptDom) {
+        lista = listaOptDom
+        lista.innerHTML = ""
+        sele = document.createElement("option")
+        sele.innerHTML = "Selecione..."
+        lista.appendChild(sele)
+        listaDados.forEach((m) => {
+          ele = document.createElement("option")
+          ele.value = m
+          ele.innerHTML = m
+          lista.appendChild(ele)
+        })		
+      }
+      (function() {
+        //Lista de montadoras
+        liMontadora1 = document.getElementById("montadora1")
+        liMontadora2 = document.getElementById("montadora2")
+        //Lista de modelos
+        liModelos1 = document.getElementById("modelo1")
+        liModelos2 = document.getElementById("modelo2")
+        //Lista de ano modelos
+        liAnoModelos1 = document.getElementById("ano1")
+        liAnoModelos2 = document.getElementById("ano2")
+        //Botões de busca
+        busca1 = document.getElementById("buscar1")
+        busca2 = document.getElementById("buscar2")
+        //Realiza atualização inicial das listas de montadoras
+        alimentaLista(montadora, liMontadora1)
+        alimentaLista(montadora, liMontadora2)
+
+        liMontadora1.addEventListener("change", function() {
+          alimentaLista(filtraModelos(this.value),liModelos1)
+        })
+        liMontadora2.addEventListener("change", function() {
+          alimentaLista(filtraModelos(this.value),liModelos2)
+        })
+
+        liModelos1.addEventListener("change", function() {
+          alimentaLista(filtraAnoModelo(liMontadora1.value,this.value),liAnoModelos1)
+        })    
+        liModelos2.addEventListener("change", function() {
+          alimentaLista(filtraAnoModelo(liMontadora2.value,this.value),liAnoModelos2)
+        })     
+
+        busca1.addEventListener("click", function() {
+          valorFinal = [liMontadora1.value,liModelos1.value,liAnoModelos1.value].join("/")
+          dadosModelo = dadosFinal[valorFinal]
+          listaSpec = document.getElementsByClassName("itenModelo1")
+          for (var i = 0; i < listaSpec.length; i++) {
+            labelFinal = ""
+            if(listaSpec[i].id.search("montadora")!=-1) {
+              labelFinal = liMontadora1.value
+            } else if (listaSpec[i].id.search("arqFoto")!=-1) {
+              labelFinal = "<img src='data:image/png;base64, " + dadosModelo[listaSpec[i].id.substr(0,listaSpec[i].id.length-1)] +  "' style='height:150px;width:initial'/>"
+            } else {
+              labelFinal = dadosModelo[listaSpec[i].id.substr(0,listaSpec[i].id.length-1)]; //second console output
+            }
+            listaSpec[i].innerHTML = labelFinal
+          }
+        })
+
+        busca2.addEventListener("click", function() {
+          valorFinal = [liMontadora2.value,liModelos2.value,liAnoModelos2.value].join("/")
+          dadosModelo = dadosFinal[valorFinal]
+          listaSpec = document.getElementsByClassName("itenModelo2")
+          for (var i = 0; i < listaSpec.length; i++) {
+            labelFinal = ""
+            if(listaSpec[i].id.search("montadora")!=-1) {
+              labelFinal = liMontadora2.value
+            } else if (listaSpec[i].id.search("arqFoto")!=-1) {
+              labelFinal = "<img src='data:image/png;base64, " + dadosModelo[listaSpec[i].id.substr(0,listaSpec[i].id.length-1)] +  "' style='height:150px;width:initial'/>"
+            } else {
+              labelFinal = dadosModelo[listaSpec[i].id.substr(0,listaSpec[i].id.length-1)]; //second console output
+            }
+            listaSpec[i].innerHTML = labelFinal
+          }
+        })
+        
+      })();
+      
+    </script>
  </body>  
 </html>
