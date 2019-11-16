@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.views.generic.base import View
 from usuarios.forms import RegistrarUsuarioForm
 from usuarios.forms import LoginUsuarioForm
+from usuarios.forms import EsqueciSenhaUsuarioForm
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -44,7 +45,7 @@ class LoginUsuarioView(View):
         if form.is_valid():
 
             dados_form = form.data
-            
+                        
             u = User.objects.get(email=dados_form['username'])
 
             user = authenticate(username=u.username, password=dados_form['password'])
@@ -60,3 +61,30 @@ class LoginUsuarioView(View):
 def usuarioSair(request):
     logout(request)
     return redirect('home')
+
+class EsqueciSenhaUsuarioView(View):
+    template_name = 'esquiciMinhaSenha.html'
+    template_name_sucess = 'login.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs):
+        print("####@@REQ PUT@@####")
+
+        form = EsqueciSenhaUsuarioForm(request.POST)
+        print("####@@REQ PUT FORM@@####")
+
+        if form.is_valid():
+
+            dados_form = form.data
+            
+            u = User.objects.get(email=dados_form['email'])
+            u.set_password(dados_form['password'])
+            u.save()
+
+            mensagem = 'Senha Alterada!'
+            
+            return render(request, self.template_name_sucess, {'mensagem': mensagem})
+
+        return render(request, self.template_name, {'form': form})

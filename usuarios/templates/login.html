@@ -1,32 +1,31 @@
-{% extends "base_usuario.html" %}
+{% extends "base_usuario.html" %} {% block body %}
 
-{% block body %}
-        <form class="form-signin jumbotron col-md-10 col-lg-6 col-xs-10" action="{% url 'login' %}" method="post">
-            {% csrf_token %}
-            <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
-            <label for="formGroupExampleInput">Email:</label>
-            <input type="email" class="form-control" id="formGroupExampleInput" name="username" placeholder="Exemplo: usuario@gmail.com" required=true>
-            <label id="labelCadastrar" for="exampleInputPassword1">Senha</label>
-            <label for="inputPassword" class="sr-only">Senha</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="*******" required>
-            <div class="checkbox mb-3">
-                <label>
-        </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="email" id="inputEmail" type="submit">Login</button>
-            <p>Não é cadastrado? <a href="{% url 'cadastrar' %}">Crie uma conta</a></p>
-            <div class="col-md-10 col-lg-12 col-xs-10">
-                <a class="col-md-10 col-lg-12 col-xs-10" id="esqueciMinhaSenha" href="cadastrar.html">Esqueci a senha</a>
-            <div>
-            {% if form.errors %}
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+<div class="jumbotron col-md-10 col-lg-6 col-xs-10">
+        {% if mensagem == 'Senha Alterada!' %}
+        <script>
+                window.alert("Senha Alterada com sucesso!");
+        </script>
+        {% endif %}
+    <form id="formLogin" class="form-signin" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
+        <label for="formGroupExampleInput">Email:</label>
+        <input type="email" class="form-control" id="formGroupExampleInput" name="username" placeholder="Exemplo: usuario@gmail.com" required=true>
+        <label id="labelCadastrar" for="exampleInputPassword1">Senha</label>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="*******" required>
+        <div class="checkbox mb-3">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="email" id="inputEmail" type="submit">Login</button>
+        <p>Não é cadastrado? <a href="{% url 'cadastrar' %}">Crie uma conta</a></p>
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                         &times;
-                    </button>
-                    {{form.non_field_errors}}
-                </div>
-            {% endif %}
-
-        </form>
-
+                    </button> {{form.non_field_errors}}
+        </div>
+        {% endif %}
+    </form>
+    <p><a id="esqueciMinhaSenha" href="{% url 'esqueciSenha' %}">Esqueci minha</a></p>
+</div>
 {% endblock %}
