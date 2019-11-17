@@ -26,15 +26,6 @@
 			data-target="#navbarSite">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarSite">
-			<ul class="navbar-nav ml-auto">
-				{% if username == '' %}
-				  <li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
-        {% else %}
-          <p id="mensagemUsuarioLogado">Olá: <strong id="nomeUsario">{{username}}</strong></p><a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
-        {% endif %}
-			</ul>
-		</div>
 	</nav>
 </header>
 
@@ -72,5 +63,19 @@
 	<script src="../static/js/popper.min.js"></script>
 	<script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/configPage.js"></script>
+
+    {% if mensagem == 'ok' %}
+    <script>
+            window.alert("Alteração realizada com sucesso!");
+    </script>
+
+    {% endif %}
+    {% if mensagem == 'excluido' %}
+    <script>
+            window.alert("Usuário excluído com sucesso!");
+    </script>
+    {% endif %}
+
+    
 </body>
 </html>

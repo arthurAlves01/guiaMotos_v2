@@ -6,6 +6,11 @@
                 window.alert("Senha Alterada com sucesso!");
         </script>
         {% endif %}
+        {% if mensagem == 'cadastrado' %}
+        <script>
+                window.alert("Cadastro realizado com sucesso!");
+        </script>
+        {% endif %}
     <form id="formLogin" class="form-signin" action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>

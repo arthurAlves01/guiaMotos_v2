@@ -1,0 +1,45 @@
+{% extends "base_usuario.html" %} {% block body %}
+<form class="form-signin jumbotron col-md-12 col-lg-7 col-xs-12" action="{% url 'configurarConta' %}" method="post" id="formulario" onsubmit="return validate()">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">Atualização de conta</h1>
+    <small id="emailHelp" class="form-text text-muted" style="text-align: center">Quais dados deseja substituir</small>
+    <label id="labelCadastrar" for="exampleInputPassword1">Nome completo:</label>
+    <input type="text" id="inputNome" name="nome" class="form-control" required>
+    <label id="labelCadastrar" for="exampleInputPassword1">Email:</label>
+    <input type="email" id="inputEmail" name="email" class="form-control" required autofocus>
+    <table class="col-md-4 col-lg-12 col-xs-12 btn btn-lg">
+        <td><button id="botaoEnviarCadastro" class="col-md-12 col-lg-12 col-xs-12 btn btn-lg btn-primary btn-block" type="submit">Alterar</button></td>
+        <td><button id="botaoEnviarCadastro" class="col-md-12 col-lg-12 col-xs-12 btn btn-lg btn-primary btn-dark" type="button"><a style="color: #fff; text-decoration: none;" href="{% url 'apagarUsuario' %}">Exclui cadastro</a></button></td>
+    </table>
+    <div id="getValores">
+        <p id="nome">{{nome}}</p>
+        <p id="email">{{email}}</p>
+    </div>
+    {% if nome != '' %}
+    <script>
+        //Script para validar se as duas senhas digitadas conferem
+        window.onload = validate
+
+        function validate() {
+            nome = document.getElementById('nome').innerText;
+            email = document.getElementById('email').innerText;
+
+            document.getElementById('inputNome').value = nome;
+            document.getElementById('inputEmail').value = email;
+
+            divSumir = document.getElementById('getValores');
+            divSumir.remove();
+
+        }
+    </script>
+    {% endif %} {% if form.errors %}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+            </button> {{form.non_field_errors}}
+    </div>
+    {% endif %}
+
+
+</form>
+{% endblock %}
