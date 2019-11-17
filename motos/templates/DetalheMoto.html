@@ -55,6 +55,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active" aria-current="page">Veículo 1</li>
                             </ol>
+                            <small id="emailHelp" class="form-text text-muted"><strong>Para habilitar a busca do Veículo 2, primeiro busque uma moto</strong></small> 
                         </nav>
                     </div>
                     <div class="form-group col-md-6">
@@ -92,6 +93,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active" aria-current="page">Veículo 2</li>
                             </ol>
+                            <small id="emailHelp" class="form-text text-muted"><strong>Para habilitar a busca, busque primeiro uma moto no formulário veículo 1</strong></small> 
                         </nav>
                     </div>
                     <div class="form-group col-md-6">
@@ -464,6 +466,20 @@
                     })
 
                 })();
+            </script>
+            <script>
+                vei2Montadora = document.getElementById("montadora2").disabled = true
+                vei2Modelo = document.getElementById("modelo2").disabled = true
+                vei2Ano = document.getElementById("ano2").disabled = true
+                vei2botao = document.getElementById("buscar2").disabled = true
+                
+                vei1botao = document.getElementById("buscar1")
+
+                vei1botao.addEventListener("click", function(){
+                vei2Montadora = document.getElementById("montadora2").disabled = false
+                vei2Modelo = document.getElementById("modelo2").disabled = false
+                vei2Ano = document.getElementById("ano2").disabled = false
+                vei2botao = document.getElementById("buscar2").disabled = false})
             </script>
 
 </body>
