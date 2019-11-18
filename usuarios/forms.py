@@ -19,11 +19,10 @@ class RegistrarUsuarioForm(forms.Form):
 
         user_exists = User.objects.filter(username=self.data['nome'].lower()).exists()
 
-        if user_exists:
-            self.adiciona_erro('Usuario ja existente')
-            valid = False
-
-        return valid
+#        if user_exists:
+#            self.adiciona_erro('Usuario ja existente')
+#            valid = False
+#        return valid
 
     def adiciona_erro(self, message):
         errors = self._errors.setdefault(

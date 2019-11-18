@@ -25,15 +25,22 @@
                 data-target="#navbarSite">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSite">
-                <ul class="navbar-nav ml-auto">
-          {% if username == '' %}
-                    <li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
-            {% else %}
-             <p id="mensagemUsuarioLogado">Olá: <strong id="nomeUsario">{{username}}</strong></p><a id="navConfig" class="nav-link text-white" href="{% url 'logout' %}">sair</a>
-            {% endif %}
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSite">
+            <ul class="navbar-nav ml-auto">
+                {% if username == '' %}
+                <li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
+                {% else %}
+                <li class="nav-item dropleft">
+                    <a id="mensagemUsuarioLogado" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Olá:<strong id="nomeUsario">{{username}}</strong></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'configurarConta' %}">Configuração conta</a>
+                        <a class="dropdown-item" href="{% url 'configurarConta' %}">Favoritos</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
         </nav>
     </header>
     <body>
