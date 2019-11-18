@@ -50,3 +50,7 @@ def get_perfil_logado(request):
         return request.user.username
     else:
         return ''
+
+
+def favoritos(request):
+    return render(request, 'favoritos.html')
