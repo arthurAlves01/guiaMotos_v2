@@ -18,7 +18,7 @@ class RegistrarUsuarioForm(forms.Form):
             valid = False
 
         email_exists = User.objects.filter(email=self.data['email']).exists()
-        user_exists = User.objects.filter(username=self.data['nome']).exists()
+        user_exists = User.objects.filter(username=self.data['nome'].lower()).exists()
 
         if email_exists or user_exists:
             self.adiciona_erro('E-mail ou usuário já cadastrado')
