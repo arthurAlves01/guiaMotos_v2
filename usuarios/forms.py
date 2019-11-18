@@ -17,12 +17,12 @@ class RegistrarUsuarioForm(forms.Form):
             self.adiciona_erro('Por favor, verifique os dados informados')
             valid = False
 
-        user_exists = User.objects.filter(username=self.data['nome'].lower()).exists()
+        email_exists = User.objects.filter(email=self.data['email']).exists()
 
-#        if user_exists:
-#            self.adiciona_erro('Usuario ja existente')
-#            valid = False
-#        return valid
+        if email_exists:
+            self.adiciona_erro('E-mail já cadastrado')
+            valid = False
+        return valid
 
     def adiciona_erro(self, message):
         errors = self._errors.setdefault(
