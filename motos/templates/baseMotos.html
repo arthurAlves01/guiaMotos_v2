@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+      <title id="titulo">Guia Motos</title>
+            <meta charset="utf-8">
+            <link id="iconeTopo" rel="icon" href="../static/img/moto1.png">
+            <link rel=stylesheet href="../static/bootstrap/css/bootstrap.css">
+    
+
+</head>
+        <nav class="navbar navbar-primary bg-primary">
+
+                <a class="navbar-brand" id="btnhome" href="#">
+                    <img src="../static/img/Logo.png" width="120" class="d-inline-block align-top" alt="">
+                </a>
+     <form class="form-inline mt-2 mt-md-0">
+            {% if username == '' %}
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+            <a class="nav-link" href="{% url 'login' %}">Fazer Login</a>
+
+            {% else %}
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" id="mensagemUsuarioLogado" href="{% url 'login' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <strong id="nomeUsario">{{username}}</strong>
+                   </a>
+                <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'configurarConta' %}">Configuração de Conta</a>
+                    <a class="dropdown-item" href="{% url 'favoritos' %}">Favoritos</a>
+                   <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                </div>
+             </div>
+             {% endif %}
+        <a>
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </a>
+    </form>
+ </nav>
+
+
+<body class="text-center">
+        <script src="../static/js/jquery.js"></script>
+        <script src="../static/js/popper.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/configPage.js"></script>
+        <div class="container">
+            {% block body %} 
+            {% endblock %}
+        </div>
+    </body>
+</html>
+

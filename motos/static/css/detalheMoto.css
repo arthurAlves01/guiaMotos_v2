@@ -1,9 +1,4 @@
-#imagemLogoNav {
-    height: 46px;
-    width: 46px;
-    border-radius: 405px!important;
-    margin-right: 7px;
-}
+
 
 #navbarSite {
     font-family: 'Farro', sans-serif;
@@ -84,13 +79,11 @@
     width: 100%;
 }
 
-img {
-    vertical-align: middle;
-}
+
 
 img {
     border: 0;
-    width: 80%;
+    width: 27%;
 }
 
 .w-100 {

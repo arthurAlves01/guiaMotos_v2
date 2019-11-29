@@ -53,4 +53,32 @@ def get_perfil_logado(request):
 
 
 def favoritos(request):
-    return render(request, 'favoritos.html')
+    return render(request, 'favoritos.html', {'username': get_perfil_logado(request)})
+
+
+def motosFavoritas(request):
+    dados = {}
+    getMontadoras="http://localhost/api/busca"
+    resposta=requests.get(url=getMontadoras)
+    if resposta.status_code == 200:
+        montadoras=resposta.json()
+        
+        for montadora in montadoras:
+            getModelos="http://localhost/api/busca/montadora/{}".format(montadora["nome"])
+            resposta=requests.get(url=getModelos)
+            modelos=resposta.json()
+            if isinstance(modelos,dict):
+                continue
+            for modelo in modelos:
+                if modelo["anofabricacao"]=="" or montadora["nome"]=="" or modelo["nomemodelo"]=="":
+                    continue
+                getDados="http://localhost/api/busca/montadora/{}/modelo/{}/ano/{}".format(montadora["nome"], modelo["nomemodelo"], modelo["anofabricacao"])
+                resposta=requests.get(url=getDados)
+                dadosModelo=resposta.json()
+                for k, v in dadosModelo.items():
+                    if isinstance(v, str):
+                        dadosModelo[k] = v.replace("\"","'")
+                dados["/".join([montadora["nome"],modelo["nomemodelo"],str(modelo["anofabricacao"])])] = dadosModelo
+        dadosFinal = json.dumps(dados)
+        return render(request, 'motoFavorita.html', {'username': get_perfil_logado(request), 'dadosModelos': dadosFinal})
+    return render(request, 'motoFavorita.html', {'username': get_perfil_logado(request)})

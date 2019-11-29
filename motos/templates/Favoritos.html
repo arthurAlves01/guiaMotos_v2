@@ -1,86 +1,160 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title id="titulo">Guia Motos</title>
-<meta charset="utf-8">
-<link id="iconeTopo" rel="icon" href="../static/img/moto1.png">
-<link rel=stylesheet href="../static/bootstrap/css/bootstrap.css">
-<link href="https://fonts.googleapis.com/css?family=Anton&display=swap"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Farro&display=swap"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Anton|Beth+Ellen|Farro&display=swap"
-	rel="stylesheet">
-<link rel=stylesheet href="../static/css/detalheMoto.css">
-<link
-	href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap"
-  rel="stylesheet"> 
-    </head>
-    <header>
-        <nav
-            class="navbar navbar-dark .bg-dark navbar-expand-lg navbar-dark bg-primary">
-     <img style="width: 12%;" src="../static/img/Logo.png">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSite">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="navbarSite">
-            <ul class="navbar-nav ml-auto">
-                {% if username == '' %}
-                <li class="nav-item"><a id="navConfig" class="nav-link text-white" href="{% url 'login' %}">Login</a></li>
-                {% else %}
-                <li class="nav-item dropleft">
-                    <a id="mensagemUsuarioLogado" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Olá:<strong id="nomeUsario">{{username}}</strong></a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'configurarConta' %}">Configuração conta</a>
-                        <a class="dropdown-item" href="{% url 'configurarConta' %}">Favoritos</a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
-                    </div>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-        </nav>
-    </header>
-    <body>
-    <div class="container">
+
+<head>
+    <title id="titulo">Guia Motos</title>
+    <meta charset="utf-8">
+    <link id="iconeTopo" rel="icon" href="../static/img/moto1.png">
+    <link rel=stylesheet href="../static/bootstrap/css/bootstrap.css">
+    <style>
+        #arqFoto1,
+        #arqFoto2 {
+            text-align: center;
+        }
+        .colModelo1 {
+    text-align: left;
+    width: 40%;
+}
+
+.colItens {
+    text-align: center;
+}
+
+.colModelo2 {
+    text-align: right;
+    width: 40%;
+}
+
+.itenModelo1 {
+    text-align: left;
+}
+
+.itenEspecificacao {
+    font-weight: bold;
+    text-align: center;
+}
+
+.itenModelo2 {
+    text-align: right;
+}
+
+.categorias ul {
+    list-style: none;
+    padding-left: 0px;
+}
+    </style>
+</head>
+<header>
+        <nav class="navbar navbar-primary bg-primary">
+
+                <a class="navbar-brand" id="btnhome" href="{% url 'home' %}">
+                    <img src="../static/img/Logo.png" width="120" class="d-inline-block align-top" alt="">
+                </a>
+     <form class="form-inline mt-2 mt-md-0">
+            {% if username == '' %}
+            <a href="{% url 'home' %}">
+                <button type="button" class="btn btn-dark">Home</button>&nbsp;&nbsp;
+            </a>
+            <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-dark">Fazer Login</button>
+            </a>
+
+            {% else %}
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" id="mensagemUsuarioLogado" href="{% url 'login' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <strong id="nomeUsario">{{username}}</strong>
+                   </a>
+                <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item"  style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"{% url 'configurarConta' %}">Configuração Conta</a>
+                    <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;" href="{% url 'home' %}">Home</a>
+                   <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"href="{% url 'logout' %}">Sair</a>
+                </div>
+             </div>
+             {% endif %}
+             <a>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+               </a>
+    </form>
+ </nav>
+</header>
+<body>
         <br>
-        <br>
-        <h2>Seus Favoritos</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>Montadora</th>
-                  <th>Modelo</th>
-                  <th>Ano</th>
-                  <th style="text-align: center;">Ação</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Honda</td>
-                  <td>CG Bros 160</td>
-                  <td>2012</td>
-                  <td style="width: 20%; text-align: center;">
-                    <button type="button" class="btn btn-primary btn-sm">Pesquisar novamente</button>
-                  </td>
-                </tr>
-                <tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-    </body>
-    <br>
-    <footer class="container">
-            <p class="float-right"><a href="#">Ir para o Inicio da Pagina</a></p>
-            <p>© TCC - UNIP - GUIA MOTOS·</p>
-    </footer>
-           
+        <div class="container">
+            <div class="row">
+                <br>
+                <br>
+                <h2>Seu Favorito</h2>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                      <thead>
+                        <tr>
+                          <th>Montadora</th>
+                          <th>Modelo</th>
+                          <th>Ano</th>
+                          <th style="text-align: center;">Ação</th>
+                        </tr>
+                      </thead>
+                <tbody id="tabela">
+                    <form action="{% url 'motosFavoritas' %}" method="post">
+                        {% csrf_token %}
+                        <tr>
+                            <td name="montadora" id="mon1"></td>
+                            <td name="modelo" id="mod1"></td>
+                            <td name="ano" id="ano1"></td>
+                            <td style="width: 20%; text-align: center;">
+                                
+                            </td>
+                        </tr>
+                    </form>
+                    <td id="mon2"></td>
+                    <td id="mod2"></td>
+                    <td id="ano2"></td>
+                    <td style="width: 20%; text-align: center; border-top: 1px solid #fff!important;">
+                        <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'motosFavoritas' %}" style="color:#fff; text-decoration: none;">Pesquisar novamente</a></button>
+                    </td>
+                    </tr>
+                    <tr>
+                </tbody>
+                    </table>
+                  </div>
+
+                
+            </div>
+            <footer class="container">
+                <p class="float-right"><a href="#">Ir para o Inicio da Pagina</a></p>
+                <p>© TCC - UNIP - GUIA MOTOS·</p>
+            </footer>
+
             <script src="../static/js/jquery.js"></script>
             <script src="../static/js/popper.min.js"></script>
             <script src="../static/js/bootstrap.min.js"></script>
-            <script src="../static/js/configPage.js"></script>    
+            <script src="../static/js/configPage.js"></script>
+
+            <script>
+                window.onload = function() {
+                    mon1 = document.getElementById("mon1")
+                    mod1 = document.getElementById("mod1")
+                    ano1 = document.getElementById("ano1")
+                    mon2 = document.getElementById("mon2")
+                    mod2 = document.getElementById("mod2")
+                    ano2 = document.getElementById("ano2")
+
+                    var b1 = localStorage.getItem("busca-1")
+                    var b2 = localStorage.getItem("busca-2")
+
+                    b1 = b1.split("/")
+                    b2 = b2.split("/")
+
+
+                    mon1.textContent = b1[0]
+                    mod1.textContent = b1[1]
+                    ano1.textContent = b1[2]
+
+                    mon2.textContent = b2[0]
+                    mod2.textContent = b2[1]
+                    ano2.textContent = b2[2]
+                }
+        </script>
+</body>
+
 </html>

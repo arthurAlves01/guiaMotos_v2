@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title id="titulo">Guia Motos</title>
     <meta charset="utf-8">
@@ -52,6 +51,9 @@
                 </a>
      <form class="form-inline mt-2 mt-md-0">
             {% if username == '' %}
+            <a href="{% url 'home' %}">
+                <button type="button" class="btn btn-dark">Home</button>&nbsp;&nbsp;
+            </a>
             <a href="{% url 'login' %}">
                 <button type="button" class="btn btn-dark">Fazer Login</button>
             </a>
@@ -62,9 +64,9 @@
                      <strong id="nomeUsario">{{username}}</strong>
                    </a>
                 <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'configurarConta' %}">Configuração de Conta</a>
-                    <a class="dropdown-item" href="{% url 'favoritos' %}">Favoritos</a>
-                   <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                    <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;" href="{% url 'configurarConta' %}">Configuração de Conta</a>
+                    <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;" href="{% url 'favoritos' %}">Favoritos</a>
+                   <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"href="{% url 'logout' %}">Sair</a>
                 </div>
              </div>
              {% endif %}
@@ -74,7 +76,6 @@
     </form>
  </nav>
 </header>
-
 <body>
     <div class="container" style="padding-top: 15px; border-color: blue;">
         <div class="row">
@@ -165,7 +166,6 @@
         </div>
         <!-- </div> -->
         <br>
-        
         <!--<div class="container" style="padding-left:30% ; padding-right: 30%;">
     <button type="button" class="btn btn-success btn-lg btn-block">Buscar</button>
     <br>
@@ -532,6 +532,7 @@
                     console.log(gravar)
                     alert("Salvo")
                     
+                    
                 })
 
 
@@ -542,8 +543,40 @@
                     console.log(gravar)
                     alert("Salvo")
                     
+                    
                 })
             </script>
-            </body>
+            <script>
+             window.onload = function() {
+            var b1 = localStorage.getItem("busca-1").split("/")
+            
+            document.getElementById("montadora1").value = b1[0]
+            document.getElementById("montadora1").dispatchEvent(new Event("change"))
+
+            document.getElementById("modelo1").value = b1[1]
+            document.getElementById("modelo1").dispatchEvent(new Event("change"))
+
+            document.getElementById("ano1").value = b1[2]
+            document.getElementById("ano1").dispatchEvent(new Event("change"))
+
+            document.getElementById("buscar1").click()
+
+            var b2 = localStorage.getItem("busca-2").split("/")
+
+            document.getElementById("montadora2").value = b2[0]
+            document.getElementById("montadora2").dispatchEvent(new Event("change"))
+
+            document.getElementById("modelo2").value = b2[1]
+            document.getElementById("modelo2").dispatchEvent(new Event("change"))
+
+            document.getElementById("ano2").value = b2[2]
+            document.getElementById("ano2").dispatchEvent(new Event("change"))
+
+            document.getElementById("buscar2").click()
+
+             }
+            </script>
+
+</body>
 
 </html>

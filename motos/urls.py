@@ -5,5 +5,7 @@ from . import views
 urlpatterns = [
     re_path('^$', views.index, name='home'),
     re_path(r'^motos$', views.exibir, name='exibir'),
-    re_path(r'^favoritos$', views.favoritos, name='favoritos')
+    re_path(r'^favoritos$', views.favoritos, name='favoritos'),
+     re_path(r'^motosFavoritas$', views.motosFavoritas, name='motosFavoritas')
+
 ]
