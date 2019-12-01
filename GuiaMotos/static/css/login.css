@@ -1,0 +1,107 @@
+#navbarSite {
+    font-family: 'Farro', sans-serif;
+    font-size: 17px;
+}
+
+.btn-block {
+    display: block;
+    width: 50%;
+}
+.container {
+     width: 100vw;
+     height: 88vh;
+     display: flex;
+     flex-direction: row;
+    justify-content: center;
+     align-items: center;
+}
+.box {
+     width: 300px;
+     height: 300px;
+     background: #fff;
+}
+body {
+    margin: 0px;
+    background-color: #f5f5f5;
+}
+.text-center {
+    text-align: center!important;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: 4px;
+    padding-top: 2px;
+}
+
+label {
+    cursor: default;
+}
+
+button {
+    margin-bottom: 5px;
+}
+
+#imagemLogoNav {
+    height: 46px;
+    width: 46px;
+    border-radius: 405px!important;
+    margin-right: 7px;
+}
+
+#nomeTitulo {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 33px;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#botaoEnviarCadastro{
+    margin-top: 20px;   
+    
+}
+
+h1{
+    text-align: center;
+}
+#labelCadastrar{
+    margin-bottom: 2px;
+    margin-top: 0px;
+}
+
+.bg-primary {
+    background-color: #007bff !important;
+    height: 57px;
+}
+
+input{
+    margin-left: 1px;
+}
+
+#esqueciMinhaSenha{
+    color: darkred;
+    font-size: 15px;
+    position: relative;
+}
+
+login {
+    border-radius: 77px!important;
+}
+
+.jumbotron {
+    padding: 2rem 2rem;
+    border-radius: 56px;
+    padding-bottom: 20px;
+}
+body{
+    background-image: url(../img/farolmoto.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    position: relative;
+}

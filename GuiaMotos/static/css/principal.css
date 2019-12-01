@@ -1,0 +1,100 @@
+#imagemLogoNav {
+    height: 46px;
+    width: 46px;
+    border-radius: 405px!important;
+    margin-right: 7px;
+}
+
+.bg-light {
+    max-width: fit-content!important;
+    margin: 0px!important;
+}
+
+
+.w-100 {
+    width: 100% !important;
+    height: 550px;
+}
+
+#iconeTopo {
+    border-radius: 339px!important;
+}
+
+#nomeTitulo {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 33px;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    color: #fff!important;
+}
+
+#navbarSite {
+    font-family: 'Farro', sans-serif;
+    font-size: 17px;
+}
+
+#corpo{
+    background-image: url(../Imagens/scooters-384560_1920.jpg)
+}
+.container {
+     width: 50vw;
+     height: 30vh;
+     display: flex;
+     flex-direction: row;
+    justify-content: center;
+     align-items: center
+}
+
+
+#bemVindo{
+    padding-bottom: 50px;
+}
+#bemVindoGuiaMotos{
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 33px;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    color: #fff!important;
+}
+#main {
+    background-image: url(../img/scooters-384560_1920.jpg);
+    background-size: 742px;
+    background-repeat: no-repeat;
+    color:  #fff;
+}
+
+body{
+    background-color: #f3f5f8;
+}
+
+.w-100 {
+    width: 100% !important;
+    height: 371px;
+    background-size: 103px;
+}
+
+.container-fluid {
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+     flex-direction: row;
+    justify-content: center;
+     align-items: center
+}
+
+#cliqueAqui{
+    margin-bottom: 0px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+.bg-primary {
+    background-color: #007bff !important;
+    height: 57px;
+}
+body{
+    background-color: #f5f5f5;
+}
+
+#bComecar{
+    height: 44px;
+    font-size: 21px;
+    border-radius: 28px;
+}

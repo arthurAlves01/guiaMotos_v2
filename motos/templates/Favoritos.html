@@ -44,117 +44,85 @@
 }
     </style>
 </head>
-<header>
+<body>
+    <header>
         <nav class="navbar navbar-primary bg-primary">
 
-                <a class="navbar-brand" id="btnhome" href="{% url 'home' %}">
-                    <img src="../static/img/Logo.png" width="120" class="d-inline-block align-top" alt="">
-                </a>
-     <form class="form-inline mt-2 mt-md-0">
-            {% if username == '' %}
-            <a href="{% url 'home' %}">
-                <button type="button" class="btn btn-dark">Home</button>&nbsp;&nbsp;
+            <a class="navbar-brand" id="btnhome" href="{% url 'home' %}">
+                <img src="../static/img/Logo.png" width="120" class="d-inline-block align-top" alt="">
             </a>
-            <a href="{% url 'login' %}">
-                <button type="button" class="btn btn-dark">Fazer Login</button>
-            </a>
+            <form class="form-inline mt-2 mt-md-0">
+                    {% if username == '' %}
+                    <a href="{% url 'home' %}">
+                        <button type="button" class="btn btn-dark">Home</button>&nbsp;&nbsp;
+                    </a>
+                    <a href="{% url 'login' %}">
+                        <button type="button" class="btn btn-dark">Fazer Login</button>
+                    </a>
 
-            {% else %}
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" id="mensagemUsuarioLogado" href="{% url 'login' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <strong id="nomeUsario">{{username}}</strong>
-                   </a>
-                <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item"  style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"{% url 'configurarConta' %}">Configuração Conta</a>
-                    <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;" href="{% url 'home' %}">Home</a>
-                   <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"href="{% url 'logout' %}">Sair</a>
-                </div>
-             </div>
-             {% endif %}
-             <a>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-               </a>
-    </form>
- </nav>
-</header>
-<body>
-        <br>
-        <div class="container">
-            <div class="row">
-                <br>
-                <br>
-                <h2>Seu Favorito</h2>
-                  <div class="table-responsive">
-                    <table class="table table-striped table-sm">
-                      <thead>
+                    {% else %}
+                        <div class="dropdown show">
+                            <a class="btn btn-secondary dropdown-toggle" id="mensagemUsuarioLogado" href="{% url 'login' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <strong id="nomeUsario">{{username}}</strong>
+                        </a>
+                        <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item"  style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"{% url 'configurarConta' %}">Configuração Conta</a>
+                            <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;" href="{% url 'home' %}">Home</a>
+                        <a class="dropdown-item" style="font-size: 14px; padding-right: 0px; padding-left: 0px;text-align: center;"href="{% url 'logout' %}">Sair</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <a>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </a>
+            </form>
+        </nav>
+    </header>
+    <br>
+    <div class="container">
+        <div class="row">
+            <br>
+            <h2>Seus Modelos Favoritos</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
                         <tr>
-                          <th>Montadora</th>
-                          <th>Modelo</th>
-                          <th>Ano</th>
-                          <th style="text-align: center;">Ação</th>
+                            <th>Montadora</th>
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Ação</th>
                         </tr>
-                      </thead>
-                <tbody id="tabela">
-                    <form action="{% url 'motosFavoritas' %}" method="post">
-                        {% csrf_token %}
-                        <tr>
-                            <td name="montadora" id="mon1"></td>
-                            <td name="modelo" id="mod1"></td>
-                            <td name="ano" id="ano1"></td>
-                            <td style="width: 20%; text-align: center;">
-                                
-                            </td>
-                        </tr>
-                    </form>
-                    <td id="mon2"></td>
-                    <td id="mod2"></td>
-                    <td id="ano2"></td>
-                    <td style="width: 20%; text-align: center; border-top: 1px solid #fff!important;">
-                        <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'motosFavoritas' %}" style="color:#fff; text-decoration: none;">Pesquisar novamente</a></button>
-                    </td>
-                    </tr>
-                    <tr>
-                </tbody>
-                    </table>
-                  </div>
+                    </thead>
+                    <tbody id="tabela">   
+                        {% if id_logado == 0 %}
+                            <td colspan="4">Faça login para visualizar seus modelos favoritos!</td>
+                        {% elif not lista_favoritos is None %}
+                            {% for favorito in lista_favoritos %}
+                                <tr>
+                                    <td>{{ favorito.montadora }}</td>
+                                    <td>{{ favorito.modelo }}</td>
+                                    <td>{{ favorito.ano_modelo }}</td>
+                                    <td><a href="{% url 'exibir' favorito.montadora favorito.modelo favorito.ano_modelo %}">Visualizar Dados</a></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <td colspan="4">Nenhum favorito cadastrado!</td>
+                        {% endif %}
+                    </tbody>
+                </table>
+            <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'exibir' %}" style="color:#fff; text-decoration: none;">Nova Pesquisa</a></button>
+            </div>     
+        </div>
+    </div>
+    <br>
+    <footer class="container">
+        <p class="float-right"><a href="#">Ir para o Inicio da Pagina</a></p>
+        <p>© TCC - UNIP - GUIA MOTOS·</p>
+    </footer>
 
-                
-            </div>
-            <footer class="container">
-                <p class="float-right"><a href="#">Ir para o Inicio da Pagina</a></p>
-                <p>© TCC - UNIP - GUIA MOTOS·</p>
-            </footer>
-
-            <script src="../static/js/jquery.js"></script>
-            <script src="../static/js/popper.min.js"></script>
-            <script src="../static/js/bootstrap.min.js"></script>
-            <script src="../static/js/configPage.js"></script>
-
-            <script>
-                window.onload = function() {
-                    mon1 = document.getElementById("mon1")
-                    mod1 = document.getElementById("mod1")
-                    ano1 = document.getElementById("ano1")
-                    mon2 = document.getElementById("mon2")
-                    mod2 = document.getElementById("mod2")
-                    ano2 = document.getElementById("ano2")
-
-                    var b1 = localStorage.getItem("busca-1")
-                    var b2 = localStorage.getItem("busca-2")
-
-                    b1 = b1.split("/")
-                    b2 = b2.split("/")
-
-
-                    mon1.textContent = b1[0]
-                    mod1.textContent = b1[1]
-                    ano1.textContent = b1[2]
-
-                    mon2.textContent = b2[0]
-                    mod2.textContent = b2[1]
-                    ano2.textContent = b2[2]
-                }
-        </script>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/configPage.js"></script>
 </body>
-
 </html>
